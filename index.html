@@ -756,6 +756,56 @@ body{font-family:'Inter',sans-serif;background:#F1F5F9;color:#1E293B;line-height
 .mt-sugest-btn{background:var(--c3l);color:var(--c3);border:1px solid #DDD6FE;border-radius:20px;padding:5px 11px;font-size:.74rem;font-weight:600;cursor:pointer;font-family:inherit;}
 .mt-sugest-btn:hover{background:var(--c3);color:#fff;border-color:var(--c3);}
 
+/* Form expandido com tipos */
+.mt-novo-form{background:#FAFAFC;border:1.5px solid var(--bdr);border-radius:10px;padding:12px;margin-bottom:10px;}
+.mt-tipo-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+.mt-tipo-tab{flex:1 1 auto;background:#fff;border:1.5px solid var(--bdr);color:#475569;padding:7px 10px;border-radius:7px;font-size:.76rem;font-weight:600;cursor:pointer;font-family:inherit;}
+.mt-tipo-tab:hover{border-color:var(--c3);color:var(--c3);}
+.mt-tipo-tab.on{background:var(--c3);color:#fff;border-color:var(--c3);}
+.mt-novo-form input[type="text"]{width:100%;padding:10px 12px;border:1.5px solid var(--bdr);border-radius:8px;font-family:inherit;font-size:.88rem;}
+.mt-novo-form input[type="text"]:focus{outline:none;border-color:var(--c3);}
+.mt-novo-form textarea{width:100%;padding:9px 11px;border:1.5px solid var(--bdr);border-radius:7px;font-family:inherit;font-size:.85rem;resize:vertical;min-height:70px;}
+.mt-novo-form textarea:focus{outline:none;border-color:var(--c3);}
+.mt-add-btn{margin-top:10px;width:100%;background:var(--c3);color:#fff;border:none;padding:10px;border-radius:8px;font-weight:700;font-size:.88rem;cursor:pointer;}
+.mt-add-btn:hover{background:#6d28d9;}
+
+/* Cabeçalho da visualização + abas de tipo de viz */
+.mt-viz-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
+.mt-viz-tabs{display:flex;gap:4px;flex-wrap:wrap;}
+.mt-viz-tab{background:#fff;border:1.5px solid var(--bdr);color:#475569;padding:5px 10px;border-radius:6px;font-size:.74rem;font-weight:600;cursor:pointer;font-family:inherit;}
+.mt-viz-tab:hover{border-color:var(--c3);color:var(--c3);}
+.mt-viz-tab.on{background:var(--c3);color:#fff;border-color:var(--c3);}
+.mt-viz-body{min-height:200px;}
+.mt-viz-body canvas{max-height:340px;width:100%!important;}
+
+/* Aluno: tipos de input */
+.mt-aluno-likert{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;}
+.mt-aluno-likert button{flex:1 1 auto;min-width:60px;background:#fff;border:2px solid var(--bdr);padding:14px 6px;border-radius:10px;font-size:.78rem;font-weight:700;color:#1E293B;cursor:pointer;font-family:inherit;text-align:center;line-height:1.3;}
+.mt-aluno-likert button:hover{border-color:var(--c3);color:var(--c3);}
+.mt-aluno-likert button.sel{background:var(--c3);color:#fff;border-color:var(--c3);}
+.mt-aluno-likert button .lk-num{display:block;font-size:1.3rem;margin-bottom:3px;}
+.mt-aluno-likert button .lk-lab{font-size:.66rem;font-weight:600;opacity:.85;}
+
+.mt-aluno-escolha{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.mt-aluno-escolha button{background:#fff;border:2px solid var(--bdr);padding:11px 13px;border-radius:8px;font-size:.86rem;color:#1E293B;cursor:pointer;font-family:inherit;text-align:left;}
+.mt-aluno-escolha button:hover{border-color:var(--c3);color:var(--c3);}
+.mt-aluno-escolha button.sel{background:var(--c3l);color:var(--c3);border-color:var(--c3);}
+
+.mt-aluno-escala{margin-top:6px;}
+.mt-aluno-escala .esc-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.mt-aluno-escala input[type="range"]{flex:1;}
+.mt-aluno-escala .esc-val{min-width:40px;text-align:center;font-weight:800;font-size:1.4rem;color:var(--c3);background:var(--c3l);padding:4px 10px;border-radius:8px;}
+.mt-aluno-escala .esc-rotulos{display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted);margin-top:4px;}
+
+/* Visualização: barras */
+.mt-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.mt-bar-lab{flex:0 0 200px;font-size:.82rem;color:#1E293B;text-align:right;font-weight:600;}
+@media(max-width:560px){.mt-bar-lab{flex:0 0 100px;font-size:.75rem;}}
+.mt-bar-track{flex:1;background:var(--paper,#F1F5F9);height:24px;border-radius:6px;position:relative;overflow:hidden;}
+.mt-bar-fill{position:absolute;left:0;top:0;height:100%;background:var(--c3);border-radius:6px;transition:width 0.4s;}
+.mt-bar-cnt{flex:0 0 60px;font-size:.78rem;color:var(--muted);font-weight:700;}
+
+
 /* ═══════════════════════════════════════════
    APPS EXTERNOS
 ═══════════════════════════════════════════ */
@@ -1563,30 +1613,53 @@ N4 — Apresentação oral 20+20 min (grupo)</div>
 
     <div class="card">
       <div class="card-title"><span class="ic">❓</span>Perguntas da sessão</div>
-      <p style="font-size:.8rem;color:var(--muted);margin-bottom:8px;">Clique em uma pergunta para projetar a nuvem de palavras. As duas primeiras são fixas (antes/depois). Você pode adicionar quantas quiser.</p>
+      <p style="font-size:.8rem;color:var(--muted);margin-bottom:8px;">Clique em uma pergunta para projetar a visualização. As duas primeiras são fixas (antes/depois). Você pode adicionar quantas quiser, em quatro tipos diferentes.</p>
       <div class="mt-perguntas" id="mt-perguntas-lista"></div>
-      <div class="mt-add-form">
-        <input type="text" id="mt-nova-perg" placeholder="Adicionar pergunta (ex: O que é uma boa hipótese?)" maxlength="180" onkeydown="if(event.key==='Enter')mtAddPergunta()">
-        <button onclick="mtAddPergunta()">+ Adicionar</button>
+
+      <!-- Form expandido -->
+      <div class="mt-novo-form">
+        <div class="mt-tipo-tabs">
+          <button type="button" class="mt-tipo-tab on" onclick="mtSetTipo('texto',this)">💬 Texto livre</button>
+          <button type="button" class="mt-tipo-tab" onclick="mtSetTipo('likert',this)">⚖ Likert 1-5</button>
+          <button type="button" class="mt-tipo-tab" onclick="mtSetTipo('escolha',this)">☑ Escolha múltipla</button>
+          <button type="button" class="mt-tipo-tab" onclick="mtSetTipo('escala',this)">📏 Escala 0-10</button>
+        </div>
+
+        <input type="text" id="mt-nova-perg" placeholder="Texto da pergunta (ex: O que é uma boa hipótese?)" maxlength="200" onkeydown="if(event.key==='Enter'&&mt_tipo_novo!=='escolha')mtAddPergunta()">
+
+        <!-- Campos extras (só visíveis para escolha múltipla) -->
+        <div id="mt-extra-escolha" style="display:none;">
+          <label style="font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-top:8px;margin-bottom:4px;">Opções (uma por linha, mínimo 2)</label>
+          <textarea id="mt-opcoes" rows="3" placeholder="Teste t&#10;ANOVA&#10;Mann-Whitney&#10;Kruskal-Wallis"></textarea>
+        </div>
+
+        <!-- Preview rótulos Likert (só visível p/ Likert) -->
+        <div id="mt-extra-likert" style="display:none;font-size:.78rem;color:var(--muted);margin-top:6px;">
+          Padrão: <strong>1</strong> = Discordo totalmente · <strong>5</strong> = Concordo totalmente.
+        </div>
+
+        <button class="mt-add-btn" onclick="mtAddPergunta()">+ Adicionar pergunta</button>
       </div>
+
       <div class="mt-sugest">
         <span class="mt-sugest-label">Sugestões rápidas:</span>
-        <button class="mt-sugest-btn" onclick="mtSugestao('O que é uma boa hipótese?')">O que é uma boa hipótese?</button>
-        <button class="mt-sugest-btn" onclick="mtSugestao('Qual teste você usaria para a sua pergunta?')">Qual teste para sua pergunta?</button>
-        <button class="mt-sugest-btn" onclick="mtSugestao('O que mais te assustou hoje na aula?')">O que mais te assustou hoje?</button>
-        <button class="mt-sugest-btn" onclick="mtSugestao('Em uma palavra, como foi o dia de hoje?')">Em uma palavra, o dia de hoje</button>
-        <button class="mt-sugest-btn" onclick="mtSugestao('O que é o p-valor para você?')">O que é p-valor para você?</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('texto','O que é uma boa hipótese?')">💬 O que é uma boa hipótese?</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('likert','Me sinto seguro para escolher o teste estatístico correto')">⚖ Likert: segurança no teste</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('escolha','Qual teste para comparar 2 grupos com dados normais?\nTeste t\nANOVA\nMann-Whitney\nQui-quadrado')">☑ Qual teste? (escolha)</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('escala','De 0 a 10, quanto você entendeu o conteúdo de hoje?')">📏 Entendimento (0-10)</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('texto','Em uma palavra, como foi o dia de hoje?')">💬 Em uma palavra</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('texto','O que é o p-valor para você?')">💬 O que é p-valor</button>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title"><span class="ic">☁️</span>Nuvem de palavras <span id="mt-nuvem-titulo" style="font-weight:500;color:var(--muted);font-size:.8rem;margin-left:4px;"></span></div>
-      <div class="mt-cloud" id="mt-cloud"><div class="mt-cloud-empty">Selecione uma pergunta acima</div></div>
-    </div>
-
-    <div class="mt-respostas">
-      <div class="card-title" style="margin-bottom:10px;"><span class="ic">📝</span>Respostas <span id="mt-resp-cnt" style="font-weight:500;color:var(--muted);font-size:.8rem;margin-left:4px;"></span></div>
-      <div id="mt-resp-lista"><div style="color:var(--muted);font-style:italic;font-size:.85rem;text-align:center;padding:14px;">Nenhuma resposta ainda</div></div>
+      <div class="mt-viz-head">
+        <div class="card-title" style="margin:0;"><span class="ic" id="mt-viz-icon">☁️</span><span id="mt-viz-titulo">Visualização</span></div>
+        <div class="mt-viz-tabs" id="mt-viz-tabs"></div>
+      </div>
+      <div class="mt-viz-body" id="mt-viz-body">
+        <div class="mt-cloud-empty">Selecione uma pergunta acima</div>
+      </div>
     </div>
 
   </div>
@@ -2006,47 +2079,80 @@ function tvImportarSom(){
 }
 
 /* ════════════════════════════════════════════
-   MENTIMETER — perguntas abertas (mesma sessão da TurmaViva)
+   MENTIMETER — múltiplos tipos de pergunta
 ════════════════════════════════════════════ */
 const MT_PERGUNTAS_PADRAO = [
-  { id:'p_antes',  txt:'Estatística para mim é...',     readonly:true },
-  { id:'p_depois', txt:'Vou usar estatística para...',  readonly:true }
+  { id:'p_antes',  txt:'Estatística para mim é...',     tipo:'texto', readonly:true },
+  { id:'p_depois', txt:'Vou usar estatística para...',  tipo:'texto', readonly:true }
 ];
+const MT_LIKERT_LABELS = ['Discordo totalmente','Discordo','Neutro','Concordo','Concordo totalmente'];
 let mt_perguntas = [...MT_PERGUNTAS_PADRAO];
-let mt_respostas = {}; // { perg_id: [ {txt,nome,ts}, ... ] }
+let mt_respostas = {};   // { perg_id: [ {txt|val|opt, ts}, ... ] }
 let mt_ativa = 'p_antes';
 let mt_unsubP = null, mt_unsubR = null;
+let mt_tipo_novo = 'texto';   // tipo selecionado no form de criação
+let mt_chart_obj = null;       // instância Chart.js da viz atual
+let mt_viz_atual = null;       // viz selecionada (nuvem/barH/barV/dispersao)
 
 function mtEntrarSessao(){
-  // Define sessão a partir da própria aba Mentimeter (sincroniza com TurmaViva)
   const inp = document.getElementById('mt-sessao-inp');
   const cod = (inp.value || '').trim();
   if(!cod){ alert('Digite um código de sessão.'); return; }
-  if(!window._tvFbReady){
-    alert('Firebase ainda carregando. Aguarde 2 segundos e tente de novo.');
-    return;
-  }
-  // Atualiza variável global compartilhada com TurmaViva
+  if(!window._tvFbReady){ alert('Firebase ainda carregando. Aguarde 2 segundos e tente de novo.'); return; }
   tv_sessao = cod;
-  // Espelha no input da TurmaViva também
   const inpTV = document.getElementById('tv-sessao-inp');
   const okTV = document.getElementById('tv-sessao-ok');
   const nomeTV = document.getElementById('tv-sessao-nome');
   if(inpTV) inpTV.value = cod;
   if(okTV) okTV.style.display = 'flex';
   if(nomeTV) nomeTV.textContent = 'Sessão: ' + cod;
-  // Mostra confirmação no Menti
   document.getElementById('mt-sessao-ok').style.display = 'block';
   document.getElementById('mt-sessao-nome').textContent = cod;
-  // Conecta listeners da TurmaViva e do Mentimeter
   if(typeof tvVivo === 'function') tvVivo();
   if(typeof tvOuvir === 'function') tvOuvir();
   mtSync();
 }
 
-function mtSugestao(txt){
+function mtSetTipo(tipo, btn){
+  mt_tipo_novo = tipo;
+  document.querySelectorAll('#menti .mt-tipo-tab').forEach(t=>t.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+  // Mostra/esconde campos extras
+  const exEsc = document.getElementById('mt-extra-escolha');
+  const exLk  = document.getElementById('mt-extra-likert');
+  if(exEsc) exEsc.style.display = (tipo==='escolha')?'block':'none';
+  if(exLk)  exLk.style.display  = (tipo==='likert' )?'block':'none';
+  // Atualiza placeholder
   const inp = document.getElementById('mt-nova-perg');
-  if(inp){ inp.value = txt; inp.focus(); }
+  if(inp){
+    const phs = {
+      texto:   'Texto da pergunta (ex: O que é uma boa hipótese?)',
+      likert:  'Afirmação para concordar/discordar (ex: Me sinto seguro com testes)',
+      escolha: 'Pergunta com opções (ex: Qual teste para 2 grupos?)',
+      escala:  'Pergunta de 0 a 10 (ex: Quanto entendeu o conteúdo?)'
+    };
+    inp.placeholder = phs[tipo] || phs.texto;
+  }
+}
+
+function mtSugestao(tipo, txt){
+  // Texto pode ter quebras de linha (escolha múltipla com opções)
+  if(tipo === 'escolha'){
+    const linhas = txt.split('\n');
+    const perg = linhas[0];
+    const opcoes = linhas.slice(1).join('\n');
+    document.getElementById('mt-nova-perg').value = perg;
+    document.getElementById('mt-opcoes').value = opcoes;
+  } else {
+    document.getElementById('mt-nova-perg').value = txt;
+  }
+  // Seleciona o tipo certo na UI
+  document.querySelectorAll('#menti .mt-tipo-tab').forEach(t=>{
+    if(t.getAttribute('onclick') && t.getAttribute('onclick').indexOf("'"+tipo+"'") > -1){
+      mtSetTipo(tipo, t);
+    }
+  });
+  document.getElementById('mt-nova-perg').focus();
 }
 
 function mtModo(m){
@@ -2058,7 +2164,6 @@ function mtModo(m){
 }
 
 function mtSync(){
-  // Reflete sessão atual no input local da aba Menti
   const inp = document.getElementById('mt-sessao-inp');
   const ok = document.getElementById('mt-sessao-ok');
   const nm = document.getElementById('mt-sessao-nome');
@@ -2069,24 +2174,20 @@ function mtSync(){
   } else {
     if(ok) ok.style.display = 'none';
   }
-  // Atualiza aviso "ao vivo" do aluno
   const vivoA = document.getElementById('mt-vivo-a');
   if(vivoA){
     vivoA.innerHTML = '<div class="tv-pulse"></div><span>'+
       (tv_sessao ? 'Sessão "'+tv_sessao+'" — respostas ao vivo' : 'Digite o código de sessão acima')+
     '</span>';
   }
-  // Chamado quando entra na aba menti — reconecta listeners se houver sessão
   if(!tv_sessao || !window._tvFbOn){ mtRender(); return; }
   if(mt_unsubP) try{mt_unsubP();}catch(e){}
   if(mt_unsubR) try{mt_unsubR();}catch(e){}
-  // Listener de perguntas customizadas
   window._tvFbOn('turmaviva/'+tv_sessao+'/menti_perguntas', function(lista){
     const custom = (lista||[]).filter(p=>p && p.txt);
     mt_perguntas = [...MT_PERGUNTAS_PADRAO, ...custom];
     mtRender();
   });
-  // Listener de respostas
   window._tvFbOn('turmaviva/'+tv_sessao+'/menti_respostas', function(lista){
     mt_respostas = {};
     (lista||[]).forEach(function(r){
@@ -2098,77 +2199,116 @@ function mtSync(){
   });
 }
 
-function mtAtivar(id){ mt_ativa = id; mtRender(); }
+function mtAtivar(id){
+  mt_ativa = id;
+  mt_viz_atual = null; // reseta — vai escolher padrão do tipo novamente
+  mtRender();
+}
 
 function mtAddPergunta(){
-  if(!tv_sessao){alert('Defina um código de sessão na aba TurmaViva primeiro.');return;}
+  if(!tv_sessao){alert('Digite e confirme o código de sessão acima primeiro.');return;}
   const inp = document.getElementById('mt-nova-perg');
   const txt = inp.value.trim();
-  if(!txt) return;
+  if(!txt){ alert('Escreva a pergunta primeiro.'); return; }
   if(!window._tvFbPush){alert('Firebase não conectado.');return;}
-  const id = 'p_' + Date.now();
-  window._tvFbPush('turmaviva/'+tv_sessao+'/menti_perguntas', { id:id, txt:txt, ts:Date.now() })
-    .then(()=>{ inp.value=''; })
+
+  const obj = { id: 'p_' + Date.now(), txt: txt, tipo: mt_tipo_novo, ts: Date.now() };
+
+  if(mt_tipo_novo === 'escolha'){
+    const opTxt = (document.getElementById('mt-opcoes').value || '').trim();
+    const opcoes = opTxt.split('\n').map(s=>s.trim()).filter(s=>s);
+    if(opcoes.length < 2){ alert('Escreva pelo menos 2 opções (uma por linha).'); return; }
+    if(opcoes.length > 8){ alert('Máximo de 8 opções.'); return; }
+    obj.opcoes = opcoes;
+  }
+
+  window._tvFbPush('turmaviva/'+tv_sessao+'/menti_perguntas', obj)
+    .then(()=>{
+      inp.value='';
+      const opEl = document.getElementById('mt-opcoes');
+      if(opEl) opEl.value = '';
+    })
     .catch(e=>alert('Erro: '+e.message));
 }
 
 function mtDelPergunta(id){
-  // Apenas perguntas customizadas podem ser deletadas (ainda assim só se localizar pelo _k Firebase)
   const p = mt_perguntas.find(x=>x.id===id);
   if(!p || p.readonly) return;
   if(!confirm('Excluir essa pergunta? As respostas dela continuam no banco mas não aparecerão.')) return;
-  if(!p._k){return;}
-  // Remove direto da chave do Firebase
+  if(!p._k) return;
   if(window._tvFbDelKey){
     window._tvFbDelKey('turmaviva/'+tv_sessao+'/menti_perguntas/'+p._k);
   }
 }
 
-function mtEnviar(perg_id){
+function mtEnviar(perg_id, valor){
   if(!tv_sessao){alert('Sessão não definida.');return;}
-  const ta = document.getElementById('mt-input-'+perg_id);
-  const txt = ta.value.trim();
-  if(!txt) return;
   if(!window._tvFbPush){alert('Firebase não conectado.');return;}
-  window._tvFbPush('turmaviva/'+tv_sessao+'/menti_respostas', { perg:perg_id, txt:txt, ts:Date.now() })
+  const p = mt_perguntas.find(x=>x.id===perg_id);
+  if(!p) return;
+
+  let payload = { perg: perg_id, ts: Date.now() };
+
+  if(p.tipo === 'texto' || !p.tipo){
+    const ta = document.getElementById('mt-input-'+perg_id);
+    const txt = (ta.value || '').trim();
+    if(!txt) return;
+    payload.txt = txt;
+  } else if(p.tipo === 'likert'){
+    if(!valor){ alert('Selecione um valor de 1 a 5.'); return; }
+    payload.val = parseInt(valor, 10);
+  } else if(p.tipo === 'escolha'){
+    if(valor == null){ alert('Selecione uma opção.'); return; }
+    payload.opt = parseInt(valor, 10);
+  } else if(p.tipo === 'escala'){
+    const sl = document.getElementById('mt-input-'+perg_id);
+    payload.val = parseInt(sl.value, 10);
+  }
+
+  window._tvFbPush('turmaviva/'+tv_sessao+'/menti_respostas', payload)
     .then(()=>{
-      ta.value='';
-      ta.disabled=true;
-      const ok=document.getElementById('mt-ok-'+perg_id);
-      ok.classList.add('on');
-      setTimeout(()=>{ ta.disabled=false; ok.classList.remove('on'); }, 4000);
+      const ok = document.getElementById('mt-ok-'+perg_id);
+      if(ok){ ok.classList.add('on'); setTimeout(()=>ok.classList.remove('on'), 4000); }
+      // Marca botão selecionado
+      if(p.tipo === 'likert' || p.tipo === 'escolha'){
+        const wrap = document.getElementById('mt-wrap-'+perg_id);
+        if(wrap){
+          wrap.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+          const sel = wrap.querySelector('button[data-val="'+valor+'"]');
+          if(sel) sel.classList.add('sel');
+        }
+      }
+      // Limpa textarea
+      if(p.tipo === 'texto' || !p.tipo){
+        const ta = document.getElementById('mt-input-'+perg_id);
+        if(ta) ta.value = '';
+      }
     })
     .catch(e=>alert('Erro: '+e.message));
 }
 
-function mtRender(){
-  // Aviso de sessão na tela do aluno
-  const vivoA = document.getElementById('mt-vivo-a');
-  if(vivoA){
-    vivoA.innerHTML = '<div class="tv-pulse"></div><span>'+
-      (tv_sessao ? 'Sessão "'+tv_sessao+'"' : 'Defina um código na aba TurmaViva primeiro')+
-      '</span>';
-  }
+function mtAtualizaSlider(perg_id, val){
+  const out = document.getElementById('mt-out-'+perg_id);
+  if(out) out.textContent = val;
+}
 
-  // Tela aluno: cards das perguntas
+/* === RENDERIZAÇÃO === */
+function mtRender(){
+  // Tela aluno
   const alunoBox = document.getElementById('mt-aluno-perguntas');
   if(alunoBox){
     if(!tv_sessao){
-      alunoBox.innerHTML='<div class="card" style="text-align:center;color:var(--muted);">Digite o <strong>código de sessão</strong> no campo acima (ex: ESTAT2025) e clique em <strong>Entrar</strong> para ver as perguntas.</div>';
+      alunoBox.innerHTML = '<div class="card" style="text-align:center;color:var(--muted);">Digite o <strong>código de sessão</strong> no campo acima (ex: ESTAT2025) e clique em <strong>Entrar</strong> para ver as perguntas.</div>';
+    } else if(!mt_perguntas.length){
+      alunoBox.innerHTML = '<div class="card" style="text-align:center;color:var(--muted);">Aguardando o professor liberar perguntas...</div>';
     } else {
-      alunoBox.innerHTML = mt_perguntas.map(function(p,i){
-        return '<div class="mt-aluno-box">'+
-          '<div class="mt-aluno-perg">'+(i+1)+'. '+escapeHtml(p.txt)+'</div>'+
-          '<div class="mt-aluno-sub">Sua resposta é anônima. Pode escrever quantas palavras quiser.</div>'+
-          '<textarea class="mt-aluno-input" id="mt-input-'+p.id+'" placeholder="Escreva aqui..."></textarea>'+
-          '<button class="mt-aluno-btn" onclick="mtEnviar(\''+p.id+'\')">Enviar resposta</button>'+
-          '<div class="mt-aluno-ok" id="mt-ok-'+p.id+'">✅ Resposta enviada!</div>'+
-        '</div>';
+      alunoBox.innerHTML = mt_perguntas.map(function(p, i){
+        return mtRenderAlunoPergunta(p, i);
       }).join('');
     }
   }
 
-  // Tela professor: lista de perguntas
+  // Tela professor — lista de perguntas
   const lista = document.getElementById('mt-perguntas-lista');
   if(lista){
     lista.innerHTML = mt_perguntas.map(function(p){
@@ -2176,38 +2316,167 @@ function mtRender(){
       const onCls = (p.id===mt_ativa)?' on':'';
       const delBtn = p.readonly ? '' : '<button class="mt-perg-del" onclick="event.stopPropagation();mtDelPergunta(\''+p.id+'\')" title="Remover">✕</button>';
       const num = p.id==='p_antes'?'1':(p.id==='p_depois'?'2':'+');
+      const tipoIcon = mtTipoIcon(p.tipo||'texto');
       return '<div class="mt-perg'+onCls+'" onclick="mtAtivar(\''+p.id+'\')">'+
         '<div class="mt-perg-num">'+num+'</div>'+
-        '<div class="mt-perg-txt">'+escapeHtml(p.txt)+'</div>'+
+        '<div class="mt-perg-txt">'+tipoIcon+' '+escapeHtml(p.txt)+'</div>'+
         '<div class="mt-perg-cnt">'+cnt+'</div>'+
         delBtn+
       '</div>';
     }).join('');
   }
 
-  // Nuvem de palavras + lista de respostas (modo professor)
-  const cloud=document.getElementById('mt-cloud');
-  const respL=document.getElementById('mt-resp-lista');
-  const tituloCloud=document.getElementById('mt-nuvem-titulo');
-  const respCnt=document.getElementById('mt-resp-cnt');
-  if(!cloud||!respL) return;
+  // Visualização (modo professor)
+  mtRenderViz();
+}
+
+function mtTipoIcon(tipo){
+  return tipo==='likert'?'⚖':(tipo==='escolha'?'☑':(tipo==='escala'?'📏':'💬'));
+}
+
+function mtRenderAlunoPergunta(p, i){
+  const tipoLabel = mtTipoIcon(p.tipo||'texto');
+  const head = '<div class="mt-aluno-perg">'+(i+1)+'. '+tipoLabel+' '+escapeHtml(p.txt)+'</div>';
+  const subPad = '<div class="mt-aluno-sub">Sua resposta é anônima.</div>';
+  const ok = '<div class="mt-aluno-ok" id="mt-ok-'+p.id+'">✅ Resposta enviada!</div>';
+
+  if(p.tipo === 'likert'){
+    const btns = MT_LIKERT_LABELS.map(function(lab, k){
+      const v = k+1;
+      return '<button data-val="'+v+'" onclick="mtEnviar(\''+p.id+'\','+v+')"><span class="lk-num">'+v+'</span><span class="lk-lab">'+escapeHtml(lab)+'</span></button>';
+    }).join('');
+    return '<div class="mt-aluno-box">'+head+subPad+
+      '<div class="mt-aluno-likert" id="mt-wrap-'+p.id+'">'+btns+'</div>'+ok+'</div>';
+  }
+  if(p.tipo === 'escolha'){
+    const opts = (p.opcoes||[]).map(function(o, k){
+      return '<button data-val="'+k+'" onclick="mtEnviar(\''+p.id+'\','+k+')">'+escapeHtml(o)+'</button>';
+    }).join('');
+    return '<div class="mt-aluno-box">'+head+subPad+
+      '<div class="mt-aluno-escolha" id="mt-wrap-'+p.id+'">'+opts+'</div>'+ok+'</div>';
+  }
+  if(p.tipo === 'escala'){
+    return '<div class="mt-aluno-box">'+head+subPad+
+      '<div class="mt-aluno-escala">'+
+        '<div class="esc-row">'+
+          '<input type="range" min="0" max="10" value="5" id="mt-input-'+p.id+'" oninput="mtAtualizaSlider(\''+p.id+'\',this.value)">'+
+          '<span class="esc-val" id="mt-out-'+p.id+'">5</span>'+
+        '</div>'+
+        '<div class="esc-rotulos"><span>0 (mínimo)</span><span>10 (máximo)</span></div>'+
+        '<button class="mt-aluno-btn" onclick="mtEnviar(\''+p.id+'\')">Enviar resposta</button>'+
+      '</div>'+ok+'</div>';
+  }
+  // texto livre
+  return '<div class="mt-aluno-box">'+head+
+    '<div class="mt-aluno-sub">Sua resposta é anônima. Pode escrever quantas palavras quiser.</div>'+
+    '<textarea class="mt-aluno-input" id="mt-input-'+p.id+'" placeholder="Escreva aqui..."></textarea>'+
+    '<button class="mt-aluno-btn" onclick="mtEnviar(\''+p.id+'\')">Enviar resposta</button>'+ok+'</div>';
+}
+
+function mtVizDisponiveis(tipo){
+  // Retorna lista de visualizações disponíveis para o tipo
+  if(tipo === 'texto')   return [['nuvem','☁ Nuvem'], ['lista','📝 Lista']];
+  if(tipo === 'likert')  return [['barH','📊 Barras horizontais'], ['barV','📊 Barras verticais'], ['dispersao','🔵 Dispersão'], ['nuvem','☁ Nuvem (rótulos)']];
+  if(tipo === 'escolha') return [['barH','📊 Barras horizontais'], ['barV','📊 Barras verticais'], ['rosca','🥧 Rosca']];
+  if(tipo === 'escala')  return [['barV','📊 Barras (histograma)'], ['barH','📊 Barras horizontais'], ['dispersao','🔵 Dispersão']];
+  return [['nuvem','☁ Nuvem']];
+}
+
+function mtSetViz(viz, btn){
+  mt_viz_atual = viz;
+  document.querySelectorAll('#menti .mt-viz-tab').forEach(t=>t.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+  mtRenderViz();
+}
+
+function mtRenderViz(){
+  const head = document.getElementById('mt-viz-titulo');
+  const icon = document.getElementById('mt-viz-icon');
+  const tabs = document.getElementById('mt-viz-tabs');
+  const body = document.getElementById('mt-viz-body');
+  if(!body) return;
 
   const pAtiva = mt_perguntas.find(p=>p.id===mt_ativa);
-  if(tituloCloud) tituloCloud.textContent = pAtiva ? '· '+pAtiva.txt : '';
-  const resps = mt_respostas[mt_ativa] || [];
-  if(respCnt) respCnt.textContent = '('+resps.length+')';
+  if(!pAtiva){
+    if(body) body.innerHTML = '<div class="mt-cloud-empty">Selecione uma pergunta acima</div>';
+    if(tabs) tabs.innerHTML = '';
+    return;
+  }
+  const tipo = pAtiva.tipo || 'texto';
+  const resps = mt_respostas[pAtiva.id] || [];
+
+  // Cabeçalho
+  if(icon) icon.textContent = mtTipoIcon(tipo);
+  if(head) head.textContent = pAtiva.txt + ' ('+resps.length+' resposta'+(resps.length===1?'':'s')+')';
+
+  // Abas de visualização
+  const vizs = mtVizDisponiveis(tipo);
+  if(!mt_viz_atual || !vizs.find(v=>v[0]===mt_viz_atual)) mt_viz_atual = vizs[0][0];
+  if(tabs){
+    tabs.innerHTML = vizs.map(v =>
+      '<button class="mt-viz-tab'+(v[0]===mt_viz_atual?' on':'')+'" onclick="mtSetViz(\''+v[0]+'\',this)">'+v[1]+'</button>'
+    ).join('');
+  }
+
+  // Destrói chart anterior
+  if(mt_chart_obj){ try{mt_chart_obj.destroy();}catch(e){} mt_chart_obj = null; }
 
   if(!resps.length){
-    cloud.innerHTML='<div class="mt-cloud-empty">Aguardando respostas para essa pergunta...</div>';
-    respL.innerHTML='<div style="color:var(--muted);font-style:italic;font-size:.85rem;text-align:center;padding:14px;">Nenhuma resposta ainda</div>';
+    body.innerHTML = '<div class="mt-cloud-empty">Aguardando respostas para essa pergunta...</div>';
     return;
   }
 
-  // Word cloud: tokenizar, normalizar, contar
+  // Render por tipo + viz
+  if(tipo === 'texto'){
+    if(mt_viz_atual === 'lista') return mtRenderListaTexto(body, resps);
+    return mtRenderNuvem(body, resps.map(r => r.txt||''));
+  }
+
+  if(tipo === 'likert'){
+    const cnt = [0,0,0,0,0];
+    resps.forEach(r => { if(r.val>=1 && r.val<=5) cnt[r.val-1]++; });
+    const labels = MT_LIKERT_LABELS.map((l,i)=>(i+1)+' · '+l);
+    const med = mtMediana(resps.map(r=>r.val).filter(v=>v));
+    const sub = '<div style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:6px;">Mediana: <strong>'+med.toFixed(1)+'</strong> · n='+resps.length+'</div>';
+    if(mt_viz_atual === 'nuvem') return mtRenderNuvem(body, resps.map(r=>MT_LIKERT_LABELS[(r.val||1)-1]||''));
+    if(mt_viz_atual === 'dispersao') return mtRenderDispersao(body, resps.map(r=>r.val).filter(v=>v), 1, 5, sub);
+    return mtRenderBarras(body, labels, cnt, mt_viz_atual==='barV'?'v':'h', sub);
+  }
+
+  if(tipo === 'escolha'){
+    const opts = pAtiva.opcoes || [];
+    const cnt = opts.map(()=>0);
+    resps.forEach(r => { if(r.opt!=null && r.opt>=0 && r.opt<opts.length) cnt[r.opt]++; });
+    const sub = '<div style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:6px;">n='+resps.length+'</div>';
+    if(mt_viz_atual === 'rosca') return mtRenderRosca(body, opts, cnt, sub);
+    return mtRenderBarras(body, opts, cnt, mt_viz_atual==='barV'?'v':'h', sub);
+  }
+
+  if(tipo === 'escala'){
+    const valores = resps.map(r=>r.val).filter(v=>v!=null);
+    const cnt = new Array(11).fill(0);
+    valores.forEach(v => { if(v>=0 && v<=10) cnt[v]++; });
+    const labels = cnt.map((_,i)=>i.toString());
+    const med = mtMediana(valores);
+    const med2 = valores.length ? (valores.reduce((a,b)=>a+b,0)/valores.length).toFixed(1) : '—';
+    const sub = '<div style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:6px;">Média: <strong>'+med2+'</strong> · Mediana: <strong>'+med.toFixed(1)+'</strong> · n='+valores.length+'</div>';
+    if(mt_viz_atual === 'dispersao') return mtRenderDispersao(body, valores, 0, 10, sub);
+    return mtRenderBarras(body, labels, cnt, mt_viz_atual==='barV'?'v':'h', sub);
+  }
+}
+
+function mtMediana(arr){
+  if(!arr.length) return 0;
+  const s = arr.slice().sort((a,b)=>a-b);
+  const m = Math.floor(s.length/2);
+  return s.length % 2 ? s[m] : (s[m-1]+s[m])/2;
+}
+
+function mtRenderNuvem(body, textos){
   const STOPWORDS = new Set('a o e as os de da do das dos em no na nos nas para por com sem que se sou eu meu minha um uma uns umas é foi era são tem ter ao à às aos pelo pela essa esse isso aqui ali lá mais menos muito pouco mas ou também tudo nada algo outro outra outros outras quando como onde porque então já não sim'.split(/\s+/));
   const cnt = {};
-  resps.forEach(function(r){
-    const txt = (r.txt||'').toLowerCase().replace(/[^a-záàâãéèêíïóôõöúçñ\s-]/gi,' ');
+  textos.forEach(function(t){
+    const txt = String(t||'').toLowerCase().replace(/[^a-záàâãéèêíïóôõöúçñ\s-]/gi,' ');
     txt.split(/\s+/).forEach(function(w){
       w = w.trim();
       if(!w || w.length<3 || STOPWORDS.has(w)) return;
@@ -2216,23 +2485,114 @@ function mtRender(){
   });
   const pares = Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,40);
   if(!pares.length){
-    cloud.innerHTML='<div class="mt-cloud-empty">As respostas são curtas demais para nuvem. Ver lista abaixo.</div>';
-  } else {
-    const max = pares[0][1];
-    cloud.innerHTML = pares.map(function(p){
-      const size = 0.85 + (p[1]/max)*1.35; // 0.85rem a 2.2rem
-      const op = 0.55 + (p[1]/max)*0.45;
-      return '<span class="mt-word" style="font-size:'+size.toFixed(2)+'rem;opacity:'+op.toFixed(2)+';">'+escapeHtml(p[0])+'</span>';
-    }).join('');
+    body.innerHTML = '<div class="mt-cloud-empty">Respostas curtas demais para nuvem.</div>';
+    return;
   }
+  const max = pares[0][1];
+  const html = '<div class="mt-cloud">'+pares.map(function(p){
+    const size = 0.85 + (p[1]/max)*1.35;
+    const op = 0.55 + (p[1]/max)*0.45;
+    return '<span class="mt-word" style="font-size:'+size.toFixed(2)+'rem;opacity:'+op.toFixed(2)+';">'+escapeHtml(p[0])+'</span>';
+  }).join('')+'</div>';
+  body.innerHTML = html;
+}
 
-  // Lista de respostas
-  respL.innerHTML = resps.slice().reverse().map(function(r){
+function mtRenderListaTexto(body, resps){
+  const items = resps.slice().reverse().map(function(r){
     const t = new Date(r.ts||0);
     const hh = String(t.getHours()).padStart(2,'0')+':'+String(t.getMinutes()).padStart(2,'0');
-    return '<div class="mt-resp-item">'+escapeHtml(r.txt)+
-      '<div class="mt-resp-meta">'+hh+'</div></div>';
+    return '<div class="mt-resp-item">'+escapeHtml(r.txt||'')+'<div class="mt-resp-meta">'+hh+'</div></div>';
   }).join('');
+  body.innerHTML = items;
+}
+
+function mtRenderBarras(body, labels, valores, orient, subHTML){
+  // barras puras em CSS (sem Chart.js para evitar peso) — robusto e responsivo
+  const total = valores.reduce((a,b)=>a+b, 0) || 1;
+  const max = Math.max.apply(null, valores) || 1;
+  if(orient === 'h'){
+    body.innerHTML = labels.map(function(lab, i){
+      const v = valores[i];
+      const pct = v ? Math.round((v/max)*100) : 0;
+      const pctTotal = v ? Math.round((v/total)*100) : 0;
+      return '<div class="mt-bar-row">'+
+        '<div class="mt-bar-lab">'+escapeHtml(lab)+'</div>'+
+        '<div class="mt-bar-track"><div class="mt-bar-fill" style="width:'+pct+'%;"></div></div>'+
+        '<div class="mt-bar-cnt">'+v+' ('+pctTotal+'%)</div>'+
+      '</div>';
+    }).join('') + (subHTML||'');
+    return;
+  }
+  // barras verticais via SVG (mais limpo)
+  const W = 600, H = 280, pad = {l:30, r:14, t:14, b:60};
+  const innerW = W - pad.l - pad.r;
+  const innerH = H - pad.t - pad.b;
+  const bw = innerW / labels.length * 0.7;
+  const gap = innerW / labels.length;
+  const bars = labels.map(function(lab, i){
+    const v = valores[i];
+    const h = v ? (v/max)*innerH : 0;
+    const x = pad.l + i*gap + (gap-bw)/2;
+    const y = pad.t + (innerH - h);
+    const labShort = lab.length > 14 ? lab.substring(0,13)+'…' : lab;
+    return '<rect x="'+x+'" y="'+y+'" width="'+bw+'" height="'+h+'" fill="#7c3aed" rx="4"/>'+
+           '<text x="'+(x+bw/2)+'" y="'+(y-4)+'" font-size="11" font-weight="700" fill="#1E293B" text-anchor="middle">'+v+'</text>'+
+           '<text x="'+(x+bw/2)+'" y="'+(pad.t+innerH+14)+'" font-size="10" fill="#475569" text-anchor="middle">'+escapeHtml(labShort)+'</text>';
+  }).join('');
+  // eixo y simples
+  const yAxis = '<line x1="'+pad.l+'" y1="'+pad.t+'" x2="'+pad.l+'" y2="'+(pad.t+innerH)+'" stroke="#CBD5E1"/>'+
+                '<line x1="'+pad.l+'" y1="'+(pad.t+innerH)+'" x2="'+(W-pad.r)+'" y2="'+(pad.t+innerH)+'" stroke="#CBD5E1"/>'+
+                '<text x="'+(pad.l-6)+'" y="'+(pad.t+5)+'" font-size="10" fill="#94a3b8" text-anchor="end">'+max+'</text>'+
+                '<text x="'+(pad.l-6)+'" y="'+(pad.t+innerH)+'" font-size="10" fill="#94a3b8" text-anchor="end">0</text>';
+  body.innerHTML = '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;max-height:340px;">'+yAxis+bars+'</svg>'+(subHTML||'');
+}
+
+function mtRenderDispersao(body, valores, vmin, vmax, subHTML){
+  // jitter por categoria — útil para Likert/escala
+  const W = 600, H = 240, pad = {l:30, r:14, t:14, b:30};
+  const innerW = W - pad.l - pad.r;
+  const innerH = H - pad.t - pad.b;
+  const range = vmax - vmin || 1;
+  const pontos = valores.map(function(v){
+    const x = pad.l + ((v - vmin) / range) * innerW;
+    const y = pad.t + innerH/2 + (Math.random()-0.5) * innerH * 0.7;
+    return '<circle cx="'+x+'" cy="'+y+'" r="5" fill="#7c3aed" opacity="0.55"/>';
+  }).join('');
+  const ticks = [];
+  for(let v=vmin; v<=vmax; v++){
+    const x = pad.l + ((v - vmin) / range) * innerW;
+    ticks.push('<line x1="'+x+'" y1="'+(pad.t+innerH)+'" x2="'+x+'" y2="'+(pad.t+innerH+5)+'" stroke="#94a3b8"/>'+
+               '<text x="'+x+'" y="'+(pad.t+innerH+18)+'" font-size="10" fill="#475569" text-anchor="middle">'+v+'</text>');
+  }
+  const eixo = '<line x1="'+pad.l+'" y1="'+(pad.t+innerH)+'" x2="'+(W-pad.r)+'" y2="'+(pad.t+innerH)+'" stroke="#CBD5E1"/>';
+  body.innerHTML = '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;max-height:240px;">'+eixo+ticks.join('')+pontos+'</svg>'+(subHTML||'');
+}
+
+function mtRenderRosca(body, labels, valores, subHTML){
+  // SVG donut chart
+  const total = valores.reduce((a,b)=>a+b, 0);
+  if(!total){ body.innerHTML = '<div class="mt-cloud-empty">Aguardando respostas...</div>'; return; }
+  const cores = ['#7c3aed','#2563eb','#0d9488','#f59e0b','#dc2626','#9333ea','#0891b2','#65a30d'];
+  const W = 320, cx = 160, cy = 160, R = 130, r = 70;
+  let acc = -Math.PI / 2; // começa no topo
+  const segs = labels.map(function(lab, i){
+    const v = valores[i];
+    if(!v) return '';
+    const ang = (v / total) * 2 * Math.PI;
+    const a1 = acc, a2 = acc + ang;
+    const large = ang > Math.PI ? 1 : 0;
+    const x1 = cx + R*Math.cos(a1), y1 = cy + R*Math.sin(a1);
+    const x2 = cx + R*Math.cos(a2), y2 = cy + R*Math.sin(a2);
+    const x3 = cx + r*Math.cos(a2), y3 = cy + r*Math.sin(a2);
+    const x4 = cx + r*Math.cos(a1), y4 = cy + r*Math.sin(a1);
+    acc = a2;
+    return '<path d="M '+x1+' '+y1+' A '+R+' '+R+' 0 '+large+' 1 '+x2+' '+y2+' L '+x3+' '+y3+' A '+r+' '+r+' 0 '+large+' 0 '+x4+' '+y4+' Z" fill="'+cores[i%cores.length]+'"/>';
+  }).join('');
+  const legenda = labels.map(function(lab, i){
+    const pct = Math.round((valores[i]/total)*100);
+    return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:.83rem;"><span style="display:inline-block;width:12px;height:12px;background:'+cores[i%cores.length]+';border-radius:3px;flex-shrink:0;"></span><span style="flex:1;color:#1E293B;">'+escapeHtml(lab)+'</span><strong style="color:#475569;">'+valores[i]+' ('+pct+'%)</strong></div>';
+  }).join('');
+  body.innerHTML = '<div style="display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;"><svg viewBox="0 0 '+W+' '+W+'" style="width:200px;height:200px;flex-shrink:0;">'+segs+'</svg><div>'+legenda+'</div></div>'+(subHTML||'');
 }
 
 function escapeHtml(s){
