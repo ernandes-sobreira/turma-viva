@@ -735,6 +735,27 @@ body{font-family:'Inter',sans-serif;background:#F1F5F9;color:#1E293B;line-height
 .mt-resp-item{padding:10px 12px;background:var(--c3l);border-left:3px solid var(--c3);border-radius:8px;margin-bottom:8px;font-size:.85rem;color:#1E293B;line-height:1.5;}
 .mt-resp-item .mt-resp-meta{font-size:.7rem;color:var(--muted);margin-top:4px;}
 
+/* Caixa de sessão dentro do Mentimeter */
+.mt-sessao-box{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:14px 16px;margin-bottom:14px;border-left:4px solid var(--c3);}
+.mt-sessao-row{display:grid;grid-template-columns:1fr 200px 110px;gap:10px;align-items:end;}
+@media(max-width:640px){
+  .mt-sessao-row{grid-template-columns:1fr 1fr;}
+  .mt-sessao-row label{grid-column:1/-1;}
+}
+.mt-sessao-row label{font-size:.85rem;color:#0F172A;}
+.mt-sessao-input{padding:10px 12px;border:2px solid var(--bdr);border-radius:8px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;letter-spacing:2px;text-align:center;text-transform:uppercase;}
+.mt-sessao-input:focus{outline:none;border-color:var(--c3);}
+.mt-sessao-btn{background:var(--c3);color:#fff;border:none;border-radius:8px;padding:10px 16px;font-weight:700;font-size:.88rem;cursor:pointer;}
+.mt-sessao-btn:hover{background:#6d28d9;}
+.mt-sessao-ok{margin-top:8px;font-size:.82rem;color:var(--c2);background:var(--c2l);padding:7px 12px;border-radius:8px;border:1px solid #86EFAC;}
+.mt-sessao-ok strong{color:#0F172A;background:#fff;padding:1px 8px;border-radius:4px;font-family:'JetBrains Mono',monospace;}
+
+/* Sugestões rápidas de perguntas */
+.mt-sugest{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.mt-sugest-label{font-size:.72rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-right:4px;}
+.mt-sugest-btn{background:var(--c3l);color:var(--c3);border:1px solid #DDD6FE;border-radius:20px;padding:5px 11px;font-size:.74rem;font-weight:600;cursor:pointer;font-family:inherit;}
+.mt-sugest-btn:hover{background:var(--c3);color:#fff;border-color:var(--c3);}
+
 /* ═══════════════════════════════════════════
    APPS EXTERNOS
 ═══════════════════════════════════════════ */
@@ -1516,8 +1537,14 @@ N4 — Apresentação oral 20+20 min (grupo)</div>
     <p>Perguntas abertas ao vivo. Use no Dia 1 para captar o "antes" e no Dia 5 para o "depois". Mesma sala da TurmaViva — basta entrar com o mesmo código.</p>
   </div>
 
-  <div class="card" style="background:#FEF3C7;border-left:4px solid #D97706;">
-    <p style="font-size:.83rem;color:#1E293B;line-height:1.6;"><strong>⚠ Use o mesmo código de sessão da TurmaViva.</strong> Vá até a aba <strong>📡 TurmaViva</strong>, defina o código (ex: ESTAT01) e volte para cá. Tudo fica armazenado na mesma sala no Firebase.</p>
+  <!-- Caixa de código de sessão -->
+  <div class="mt-sessao-box" id="mt-sessao-box">
+    <div class="mt-sessao-row">
+      <label><strong>🔑 Código da sessão</strong><span style="color:var(--muted);font-weight:400;font-size:.78rem;display:block;">O mesmo código vale para Mentimeter e TurmaViva — define a sala no Firebase.</span></label>
+      <input class="mt-sessao-input" type="text" id="mt-sessao-inp" placeholder="ESTAT2025" maxlength="12" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'')">
+      <button class="mt-sessao-btn" onclick="mtEntrarSessao()">Entrar</button>
+    </div>
+    <div class="mt-sessao-ok" id="mt-sessao-ok" style="display:none;">✅ Conectado à sala <strong id="mt-sessao-nome">—</strong> · respostas salvas em tempo real</div>
   </div>
 
   <div class="tv-toggle">
@@ -1527,7 +1554,7 @@ N4 — Apresentação oral 20+20 min (grupo)</div>
 
   <!-- TELA ALUNO -->
   <div id="mt-tela-a" style="display:block;">
-    <div class="tv-vivo" id="mt-vivo-a"><div class="tv-pulse"></div><span>Defina um código na aba TurmaViva primeiro</span></div>
+    <div class="tv-vivo" id="mt-vivo-a"><div class="tv-pulse"></div><span>Digite o código de sessão acima</span></div>
     <div id="mt-aluno-perguntas"></div>
   </div>
 
@@ -1536,11 +1563,19 @@ N4 — Apresentação oral 20+20 min (grupo)</div>
 
     <div class="card">
       <div class="card-title"><span class="ic">❓</span>Perguntas da sessão</div>
-      <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">Clique em uma pergunta para projetar a nuvem de palavras e a lista de respostas. As duas primeiras já vêm pré-cadastradas.</p>
+      <p style="font-size:.8rem;color:var(--muted);margin-bottom:8px;">Clique em uma pergunta para projetar a nuvem de palavras. As duas primeiras são fixas (antes/depois). Você pode adicionar quantas quiser.</p>
       <div class="mt-perguntas" id="mt-perguntas-lista"></div>
       <div class="mt-add-form">
-        <input type="text" id="mt-nova-perg" placeholder="Adicionar nova pergunta (ex: O que é uma boa hipótese?)" maxlength="180">
+        <input type="text" id="mt-nova-perg" placeholder="Adicionar pergunta (ex: O que é uma boa hipótese?)" maxlength="180" onkeydown="if(event.key==='Enter')mtAddPergunta()">
         <button onclick="mtAddPergunta()">+ Adicionar</button>
+      </div>
+      <div class="mt-sugest">
+        <span class="mt-sugest-label">Sugestões rápidas:</span>
+        <button class="mt-sugest-btn" onclick="mtSugestao('O que é uma boa hipótese?')">O que é uma boa hipótese?</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('Qual teste você usaria para a sua pergunta?')">Qual teste para sua pergunta?</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('O que mais te assustou hoje na aula?')">O que mais te assustou hoje?</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('Em uma palavra, como foi o dia de hoje?')">Em uma palavra, o dia de hoje</button>
+        <button class="mt-sugest-btn" onclick="mtSugestao('O que é o p-valor para você?')">O que é p-valor para você?</button>
       </div>
     </div>
 
@@ -1982,6 +2017,38 @@ let mt_respostas = {}; // { perg_id: [ {txt,nome,ts}, ... ] }
 let mt_ativa = 'p_antes';
 let mt_unsubP = null, mt_unsubR = null;
 
+function mtEntrarSessao(){
+  // Define sessão a partir da própria aba Mentimeter (sincroniza com TurmaViva)
+  const inp = document.getElementById('mt-sessao-inp');
+  const cod = (inp.value || '').trim();
+  if(!cod){ alert('Digite um código de sessão.'); return; }
+  if(!window._tvFbReady){
+    alert('Firebase ainda carregando. Aguarde 2 segundos e tente de novo.');
+    return;
+  }
+  // Atualiza variável global compartilhada com TurmaViva
+  tv_sessao = cod;
+  // Espelha no input da TurmaViva também
+  const inpTV = document.getElementById('tv-sessao-inp');
+  const okTV = document.getElementById('tv-sessao-ok');
+  const nomeTV = document.getElementById('tv-sessao-nome');
+  if(inpTV) inpTV.value = cod;
+  if(okTV) okTV.style.display = 'flex';
+  if(nomeTV) nomeTV.textContent = 'Sessão: ' + cod;
+  // Mostra confirmação no Menti
+  document.getElementById('mt-sessao-ok').style.display = 'block';
+  document.getElementById('mt-sessao-nome').textContent = cod;
+  // Conecta listeners da TurmaViva e do Mentimeter
+  if(typeof tvVivo === 'function') tvVivo();
+  if(typeof tvOuvir === 'function') tvOuvir();
+  mtSync();
+}
+
+function mtSugestao(txt){
+  const inp = document.getElementById('mt-nova-perg');
+  if(inp){ inp.value = txt; inp.focus(); }
+}
+
 function mtModo(m){
   document.getElementById('mt-tela-a').style.display = m==='aluno'?'block':'none';
   document.getElementById('mt-tela-p').style.display = m==='prof' ?'block':'none';
@@ -1991,6 +2058,24 @@ function mtModo(m){
 }
 
 function mtSync(){
+  // Reflete sessão atual no input local da aba Menti
+  const inp = document.getElementById('mt-sessao-inp');
+  const ok = document.getElementById('mt-sessao-ok');
+  const nm = document.getElementById('mt-sessao-nome');
+  if(tv_sessao){
+    if(inp && !inp.value) inp.value = tv_sessao;
+    if(ok) ok.style.display = 'block';
+    if(nm) nm.textContent = tv_sessao;
+  } else {
+    if(ok) ok.style.display = 'none';
+  }
+  // Atualiza aviso "ao vivo" do aluno
+  const vivoA = document.getElementById('mt-vivo-a');
+  if(vivoA){
+    vivoA.innerHTML = '<div class="tv-pulse"></div><span>'+
+      (tv_sessao ? 'Sessão "'+tv_sessao+'" — respostas ao vivo' : 'Digite o código de sessão acima')+
+    '</span>';
+  }
   // Chamado quando entra na aba menti — reconecta listeners se houver sessão
   if(!tv_sessao || !window._tvFbOn){ mtRender(); return; }
   if(mt_unsubP) try{mt_unsubP();}catch(e){}
@@ -2069,7 +2154,7 @@ function mtRender(){
   const alunoBox = document.getElementById('mt-aluno-perguntas');
   if(alunoBox){
     if(!tv_sessao){
-      alunoBox.innerHTML='<div class="card" style="text-align:center;color:var(--muted);">Vá até a aba <strong>📡 TurmaViva</strong>, defina um código (ex: ESTAT01) e volte aqui.</div>';
+      alunoBox.innerHTML='<div class="card" style="text-align:center;color:var(--muted);">Digite o <strong>código de sessão</strong> no campo acima (ex: ESTAT2025) e clique em <strong>Entrar</strong> para ver as perguntas.</div>';
     } else {
       alunoBox.innerHTML = mt_perguntas.map(function(p,i){
         return '<div class="mt-aluno-box">'+
