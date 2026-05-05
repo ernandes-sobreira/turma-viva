@@ -180,12 +180,21 @@ body{font-family:'Inter',sans-serif;background:#F1F5F9;color:#1E293B;line-height
 .grupo-top{padding:14px 16px;color:#fff;}
 .grupo-top h3{font-size:.95rem;font-weight:800;}
 .grupo-top p{font-size:.75rem;opacity:.85;margin-top:2px;}
-.gp1 .grupo-top{background:linear-gradient(135deg,#1e3a8a,#1d4ed8);}
-.gp2 .grupo-top{background:linear-gradient(135deg,#14532d,#15803d);}
-.gp3 .grupo-top{background:linear-gradient(135deg,#4c1d95,#7c3aed);}
-.gp4 .grupo-top{background:linear-gradient(135deg,#7c2d12,#c2410c);}
-.gp5 .grupo-top{background:linear-gradient(135deg,#134e4a,#0f766e);}
-.gp6 .grupo-top{background:linear-gradient(135deg,#7f1d1d,#b91c1c);}
+.gp1 .grupo-top{background:linear-gradient(135deg,#7f1d1d,#dc2626);}
+.gp2 .grupo-top{background:linear-gradient(135deg,#9f1239,#e11d48);}
+.gp3 .grupo-top{background:linear-gradient(135deg,#7c2d12,#ea580c);}
+.gp4 .grupo-top{background:linear-gradient(135deg,#92400e,#d97706);}
+.gp5 .grupo-top{background:linear-gradient(135deg,#1e3a8a,#2563eb);}
+.gp6 .grupo-top{background:linear-gradient(135deg,#134e4a,#0d9488);}
+
+/* Cabeçalho de eixo temático na aba Grupos */
+.eixo-head{margin:14px 0 10px;padding:10px 14px;border-radius:10px;display:flex;align-items:center;gap:10px;}
+.eixo-head h3{font-size:.95rem;font-weight:800;color:#fff;margin:0;flex:1;}
+.eixo-head .coord{font-size:.7rem;color:#fff;background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:20px;font-weight:600;}
+.eixo-saude{background:linear-gradient(135deg,#991b1b,#dc2626);}
+.eixo-carbono{background:linear-gradient(135deg,#7c2d12,#d97706);}
+.eixo-agua{background:linear-gradient(135deg,#1e3a8a,#0d9488);}
+.eixo-icone{font-size:1.3rem;}
 .grupo-body{padding:14px 16px;}
 .grupo-body .gl{font-size:.65rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;margin-top:10px;}
 .grupo-body .gl:first-child{margin-top:0;}
@@ -860,7 +869,7 @@ body{font-family:'Inter',sans-serif;background:#F1F5F9;color:#1E293B;line-height
   <div class="hero-inner">
     <div class="hero-chip">UNEMAT · Campus Cáceres-MT</div>
     <h1>Estatística Desconstruída</h1>
-    <div class="hero-sub">Prof. Dr. Ernandes Sobreira Oliveira Junior · 18 a 22 de maio de 2026 · Entrega final em 23/05/2026</div>
+    <div class="hero-sub">Profs. Dr. Wilkinson Lopes Lázaro & Dr. Ernandes Sobreira Oliveira Junior · 18 a 22 de maio de 2026 · Entrega final em 23/05/2026</div>
     <div class="hero-pills">
       <span class="hero-pill">📅 5 dias intensivos · 40 h/a</span>
       <span class="hero-pill">🎓 Pós-graduação & Graduação</span>
@@ -1057,15 +1066,15 @@ N4 — Apresentação oral 20+20 min (grupo)</div>
 <div id="dia5" class="page">
   <div class="dia-banner d5"><div class="dia-chip">Sexta-feira · 22/05/2026 · Sábado 23/05 = entrega final</div><h2>🎤 Apresentações & Síntese</h2><p>20 min de apresentação + 20 min de arguição · Retorno às respostas do Dia 1 (Mentimeter)</p></div>
   <div class="turno"><div class="turno-head manha">☀️ MANHÃ · Grupos 1, 2 e 3</div>
-    <div class="ativ"><div class="ativ-hora tl">08h–08h40</div><div class="ativ-txt"><h4>G1 · Temperatura e Zonas Climáticas</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Fonte: <strong>INMET / BDMEP</strong>. Pergunta: <em>A temperatura máxima anual difere entre as zonas climáticas de MT?</em><br>Testes: ANOVA + Kruskal-Wallis + boxplot por zona.</p></div></div>
-    <div class="ativ"><div class="ativ-hora tl">08h40–09h20</div><div class="ativ-txt"><h4>G2 · Qualidade da Água</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Fonte: <strong>SEMA-MT / ANA</strong>. Pergunta: <em>O IQA difere entre as três regiões hidrográficas de MT?</em><br>Testes: ANOVA/KW + Mann-Whitney + Regressão IQA × uso do solo.</p></div></div>
+    <div class="ativ"><div class="ativ-hora tl">08h–08h40</div><div class="ativ-txt"><h4>G1 · Saúde Respiratória × Queimadas</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Eixo: <strong>Saúde</strong>. Fontes: <strong>DATASUS/SIH + INPE BDQueimadas + IBGE</strong>. Pergunta: <em>Municípios com mais focos de queimadas têm maior taxa de internação por doenças respiratórias (CID J00–J99)?</em><br>Testes: Regressão + ANCOVA (controlando IDH) + Spearman.</p></div></div>
+    <div class="ativ"><div class="ativ-hora tl">08h40–09h20</div><div class="ativ-txt"><h4>G2 · Saúde Cardiovascular × Calor Extremo</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Eixo: <strong>Saúde</strong>. Fontes: <strong>DATASUS/SIM + INMET</strong>. Pergunta: <em>A mortalidade por doenças circulatórias (CID I00–I99) é maior em meses com mais dias de Tmax ≥ 35°C?</em><br>Testes: Regressão de Poisson + Correlação + ANOVA mensal.</p></div></div>
     <div class="ativ"><div class="ativ-hora am">09h20–09h40</div><div class="ativ-txt"><h4>☕ Intervalo</h4></div></div>
-    <div class="ativ"><div class="ativ-hora tl">09h40–10h20</div><div class="ativ-txt"><h4>G3 · Carbono do Solo</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Fonte: <strong>MapBiomas Solo C3</strong>. Pergunta: <em>O COS em MT diminuiu com a expansão do agronegócio entre 1985 e 2023?</em><br>Testes: Wilcoxon pareado + Regressão temporal + ANOVA por bioma.</p></div></div>
+    <div class="ativ"><div class="ativ-hora tl">09h40–10h20</div><div class="ativ-txt"><h4>G3 · Carbono do Solo × Uso da Terra</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Eixo: <strong>Carbono e Fogo</strong>. Fontes: <strong>MapBiomas Solo C3 + MapBiomas Cobertura C9</strong>. Pergunta: <em>O COS em MT diminuiu nas áreas que mudaram de vegetação nativa para pastagem ou agricultura entre 1985 e 2024?</em><br>Testes: Wilcoxon pareado + Regressão temporal + ANOVA por classe de uso.</p></div></div>
   </div>
   <div class="turno"><div class="turno-head tarde">🌇 TARDE · Grupos 4, 5, 6 + Encerramento</div>
-    <div class="ativ"><div class="ativ-hora tl">13h–13h40</div><div class="ativ-txt"><h4>G4 · Queimadas e Sazonalidade</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Fonte: <strong>INPE / BDQueimadas</strong>. Pergunta: <em>Os focos de calor em MT aumentaram entre 1998 e 2024 e mostram tendência sazonal?</em><br>Testes: Mann-Kendall + Média móvel simples + Correlação focos × precipitação.</p></div></div>
-    <div class="ativ"><div class="ativ-hora tl">13h40–14h20</div><div class="ativ-txt"><h4>G5 · Uso do Solo × Temperatura</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Fonte: <strong>MapBiomas C9 + ERA5-Land</strong>. Pergunta: <em>Municípios com mais pastagem apresentam temperaturas mais altas que os com mais floresta?</em><br>Testes: Regressão múltipla + Matriz de correlação (heatmap) + Spearman.</p></div></div>
-    <div class="ativ"><div class="ativ-hora tl">14h20–15h</div><div class="ativ-txt"><h4>G6 · Saúde Ambiental</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Fonte: <strong>DATASUS/SIM + BDQueimadas + IBGE</strong>. Pergunta: <em>Municípios com mais focos têm maior mortalidade respiratória (CID J00–J99)?</em><br>Testes: Regressão de Poisson + ANCOVA (controlando IDH) + Spearman.</p></div></div>
+    <div class="ativ"><div class="ativ-hora tl">13h–13h40</div><div class="ativ-txt"><h4>G4 · Queimadas e Sazonalidade</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Eixo: <strong>Carbono e Fogo</strong>. Fontes: <strong>INPE BDQueimadas + ANA precipitação</strong>. Pergunta: <em>Os focos de calor em MT aumentaram entre 1998 e 2024 com tendência sazonal associada à diminuição da precipitação?</em><br>Testes: Mann-Kendall + Média móvel simples + Correlação focos × precipitação.</p></div></div>
+    <div class="ativ"><div class="ativ-hora tl">13h40–14h20</div><div class="ativ-txt"><h4>G5 · Qualidade da Água</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Eixo: <strong>Recursos Hídricos</strong>. Fontes: <strong>SEMA-MT + ANA Qualiágua + ANA HidroWeb</strong>. Pergunta: <em>O IQA difere entre as três regiões hidrográficas de MT (Amazônica, Paraguai, Tocantins-Araguaia)?</em><br>Testes: ANOVA / Kruskal-Wallis + Mann-Whitney + Regressão IQA × uso do solo.</p></div></div>
+    <div class="ativ"><div class="ativ-hora tl">14h20–15h</div><div class="ativ-txt"><h4>G6 · Vazão e Disponibilidade Hídrica</h4><p style="color:#475569;font-size:.82rem;line-height:1.5;">Eixo: <strong>Recursos Hídricos</strong>. Fontes: <strong>ANA HidroWeb (estação Cáceres) + INMET</strong>. Pergunta: <em>A vazão média anual do rio Paraguai em Cáceres apresenta tendência de redução entre 1995 e 2024 e como se relaciona com a precipitação?</em><br>Testes: Mann-Kendall + Média móvel simples + Regressão vazão × precipitação.</p></div></div>
     <div class="ativ"><div class="ativ-hora am">15h–15h20</div><div class="ativ-txt"><h4>☕ Intervalo</h4></div></div>
     <div class="ativ"><div class="ativ-hora tl">15h20–16h30</div><div class="ativ-txt"><h4>🔄 Retorno às Respostas do Dia 1</h4><p>O professor abre a aba <strong>💬 Mentimeter</strong>, seleciona a pergunta <em>"Estatística para mim é..."</em> e projeta a nuvem de palavras gerada no Dia 1. A turma vê coletivamente o que pensava na segunda.</p><div class="box tl" style="margin-top:8px;"><div class="box-label">Dinâmica final — antes / depois</div><p>Em seguida, o professor abre a segunda pergunta: <em>"Vou usar estatística para..."</em>. Cada aluno responde ao vivo no celular. A nuvem de palavras nova aparece ao lado da do Dia 1, projetadas lado a lado. Discussão coletiva: <strong>o que mudou?</strong> Quais palavras desapareceram? Quais surgiram? O professor exporta as duas nuvens como evidência do antes/depois e o grupo encerra com a comparação visível na tela.</p></div></div></div>
   </div>
@@ -1073,16 +1082,81 @@ N4 — Apresentação oral 20+20 min (grupo)</div>
 
 <!-- GRUPOS -->
 <div id="grupos" class="page">
-  <div class="card"><div class="card-title"><span class="ic">👥</span>6 Grupos · Perguntas com Dados Reais de MT</div>
-    <div class="alerta"><strong>Regra:</strong> Todo dado deve ter fonte real com link ativo no relatório. Nenhum dado simulado.</div>
-    <div class="grupos">
-      <div class="grupo gp1"><div class="grupo-top"><h3>G1 · Temperatura e Zonas</h3><p>INMET / BDMEP</p></div><div class="grupo-body"><div class="gl">Pergunta</div><p><strong>A temperatura máxima anual difere entre as zonas climáticas de MT?</strong></p><div class="gl">Fonte</div><p>INMET — Cáceres (A701), Cuiabá (A901), Alta Floresta (A920), Sinop, Rondonópolis.</p><a class="fr" href="https://bdmep.inmet.gov.br/" target="_blank" rel="noopener" style="display:block;color:#1d4ed8;text-decoration:none;font-weight:700;margin-top:6px;">→ bdmep.inmet.gov.br ↗</a><div class="gt">Testes: ANOVA + KW + boxplot por zona</div></div></div>
-      <div class="grupo gp2"><div class="grupo-top"><h3>G2 · Qualidade da Água</h3><p>SEMA-MT / ANA</p></div><div class="grupo-body"><div class="gl">Pergunta</div><p><strong>O IQA difere entre as três regiões hidrográficas de MT?</strong></p><div class="gl">Fonte</div><p>SEMA-MT — Relatório 2018-2019. 107 pontos, 30 parâmetros.</p><a class="fr" href="https://portalpnqa.ana.gov.br/" target="_blank" rel="noopener" style="display:block;color:#0369a1;text-decoration:none;font-weight:700;margin-top:6px;">→ portalpnqa.ana.gov.br ↗</a><div class="gt">Testes: ANOVA/KW + Mann-Whitney + Regressão IQA × uso</div></div></div>
-      <div class="grupo gp3"><div class="grupo-top"><h3>G3 · Carbono do Solo</h3><p>MapBiomas Solo C3</p></div><div class="grupo-body"><div class="gl">Pergunta</div><p><strong>O COS em MT diminuiu com a expansão do agronegócio (1985–2023)?</strong></p><div class="gl">Fonte</div><p>MapBiomas Solo C3 — COS 1985-2024 (t/ha, 30m).</p><a class="fr" href="https://brasil.mapbiomas.org/colecoes-mapbiomas-solo/" target="_blank" rel="noopener" style="display:block;color:#047857;text-decoration:none;font-weight:700;margin-top:6px;">→ brasil.mapbiomas.org/solo ↗</a><div class="gt">Testes: Wilcoxon pareado + Regressão + ANOVA por bioma</div></div></div>
-      <div class="grupo gp4"><div class="grupo-top"><h3>G4 · Queimadas e Seca</h3><p>INPE BDQueimadas</p></div><div class="grupo-body"><div class="gl">Pergunta</div><p><strong>Os focos em MT aumentaram entre 1998–2024 com tendência sazonal?</strong></p><div class="gl">Fonte</div><p>INPE BDQueimadas — focos mensais MT em CSV.</p><a class="fr" href="https://terrabrasilis.dpi.inpe.br/queimadas/portal/" target="_blank" rel="noopener" style="display:block;color:#b91c1c;text-decoration:none;font-weight:700;margin-top:6px;">→ terrabrasilis.dpi.inpe.br/queimadas ↗</a><div class="gt">Testes: Mann-Kendall + Média móvel + Correlação focos × chuva</div></div></div>
-      <div class="grupo gp5"><div class="grupo-top"><h3>G5 · Uso do Solo × Temperatura</h3><p>MapBiomas + ERA5-Land</p></div><div class="grupo-body"><div class="gl">Pergunta</div><p><strong>Municípios com mais pastagem têm temperaturas mais altas que os com mais floresta?</strong></p><div class="gl">Fonte</div><p>MapBiomas C9 + ERA5-Land (0,1°). N ≈ 141 municípios.</p><a class="fr" href="https://brasil.mapbiomas.org/estatisticas/" target="_blank" rel="noopener" style="display:block;color:#047857;text-decoration:none;font-weight:700;margin-top:6px;">→ brasil.mapbiomas.org/estatisticas ↗</a><div class="gt">Testes: Regressão múltipla + Matriz correlação (heatmap) + Spearman</div></div></div>
-      <div class="grupo gp6"><div class="grupo-top"><h3>G6 · Saúde Ambiental</h3><p>DATASUS + INPE + IBGE</p></div><div class="grupo-body"><div class="gl">Pergunta</div><p><strong>Municípios com mais focos têm maior mortalidade respiratória?</strong></p><div class="gl">Fonte</div><p>DATASUS/SIM (CID J00-J99) + BDQueimadas + IBGE. N ≈ 141.</p><a class="fr" href="https://datasus.saude.gov.br/informacoes-de-saude-tabnet/" target="_blank" rel="noopener" style="display:block;color:#86198f;text-decoration:none;font-weight:700;margin-top:6px;">→ datasus.saude.gov.br/tabnet ↗</a><div class="gt">Testes: Regressão + ANCOVA (controlando IDH) + Spearman</div></div></div>
+  <div class="card"><div class="card-title"><span class="ic">👥</span>6 Grupos · 3 Eixos Temáticos · Dados Reais de MT</div>
+    <div class="alerta"><strong>Regra:</strong> Todo dado deve ter fonte real com link ativo no relatório. Nenhum dado simulado. Os 6 grupos estão organizados em três eixos temáticos com coordenação compartilhada entre os professores.</div>
+
+    <!-- EIXO 1 — SAÚDE -->
+    <div class="eixo-head eixo-saude">
+      <span class="eixo-icone">🏥</span>
+      <h3>Eixo 1 · Saúde Ambiental</h3>
     </div>
+    <div class="grupos">
+      <div class="grupo gp1"><div class="grupo-top"><h3>G1 · Saúde Respiratória × Queimadas</h3><p>DATASUS + INPE BDQueimadas</p></div><div class="grupo-body">
+        <div class="gl">Pergunta</div><p><strong>Municípios de MT com maior número de focos de queimadas apresentam maior taxa de internação por doenças respiratórias (CID J00–J99)?</strong></p>
+        <div class="gl">Fontes</div><p>DATASUS/SIH-SUS (internações por capítulo CID J) · INPE BDQueimadas (focos mensais por município) · IBGE (população).</p>
+        <a class="fr" href="https://datasus.saude.gov.br/informacoes-de-saude-tabnet/" target="_blank" rel="noopener" style="display:block;color:#dc2626;text-decoration:none;font-weight:700;margin-top:6px;">→ datasus.saude.gov.br/tabnet ↗</a>
+        <a class="fr" href="https://terrabrasilis.dpi.inpe.br/queimadas/portal/" target="_blank" rel="noopener" style="display:block;color:#dc2626;text-decoration:none;font-weight:700;margin-top:4px;">→ terrabrasilis.dpi.inpe.br/queimadas ↗</a>
+        <a class="fr" href="https://www.ibge.gov.br/cidades-e-estados/mt.html" target="_blank" rel="noopener" style="display:block;color:#dc2626;text-decoration:none;font-weight:700;margin-top:4px;">→ ibge.gov.br/cidades-mt ↗</a>
+        <div class="gt">Testes: Regressão + ANCOVA (controlando IDH) + Spearman</div>
+      </div></div>
+      <div class="grupo gp2"><div class="grupo-top"><h3>G2 · Saúde Cardiovascular × Calor Extremo</h3><p>DATASUS + INMET</p></div><div class="grupo-body">
+        <div class="gl">Pergunta</div><p><strong>A mortalidade por doenças circulatórias (CID I00–I99) em MT é maior em meses com mais dias de calor extremo (Tmax ≥ 35°C)?</strong></p>
+        <div class="gl">Fontes</div><p>DATASUS/SIM (mortalidade por capítulo CID I) · INMET BDMEP (temperatura diária por estação) · IBGE.</p>
+        <a class="fr" href="https://datasus.saude.gov.br/informacoes-de-saude-tabnet/" target="_blank" rel="noopener" style="display:block;color:#e11d48;text-decoration:none;font-weight:700;margin-top:6px;">→ datasus.saude.gov.br/tabnet (SIM) ↗</a>
+        <a class="fr" href="https://bdmep.inmet.gov.br/" target="_blank" rel="noopener" style="display:block;color:#e11d48;text-decoration:none;font-weight:700;margin-top:4px;">→ bdmep.inmet.gov.br ↗</a>
+        <a class="fr" href="https://www.ibge.gov.br/cidades-e-estados/mt.html" target="_blank" rel="noopener" style="display:block;color:#e11d48;text-decoration:none;font-weight:700;margin-top:4px;">→ ibge.gov.br/cidades-mt ↗</a>
+        <div class="gt">Testes: Regressão de Poisson + Correlação (Pearson/Spearman) + ANOVA mensal</div>
+      </div></div>
+    </div>
+
+    <!-- EIXO 2 — CARBONO E FOGO -->
+    <div class="eixo-head eixo-carbono">
+      <span class="eixo-icone">🔥</span>
+      <h3>Eixo 2 · Carbono e Fogo</h3>
+    </div>
+    <div class="grupos">
+      <div class="grupo gp3"><div class="grupo-top"><h3>G3 · Carbono do Solo × Uso da Terra</h3><p>MapBiomas Solo + MapBiomas Cobertura</p></div><div class="grupo-body">
+        <div class="gl">Pergunta</div><p><strong>O estoque de carbono orgânico do solo (COS) em MT diminuiu nas áreas que mudaram de vegetação nativa para pastagem ou agricultura entre 1985 e 2024?</strong></p>
+        <div class="gl">Fontes</div><p>MapBiomas Solo Coleção 3 (COS 1985–2024 em t/ha, 30m) · MapBiomas Cobertura Coleção 9 (transições de uso).</p>
+        <a class="fr" href="https://brasil.mapbiomas.org/colecoes-mapbiomas-solo/" target="_blank" rel="noopener" style="display:block;color:#ea580c;text-decoration:none;font-weight:700;margin-top:6px;">→ brasil.mapbiomas.org/solo ↗</a>
+        <a class="fr" href="https://brasil.mapbiomas.org/colecoes-mapbiomas/" target="_blank" rel="noopener" style="display:block;color:#ea580c;text-decoration:none;font-weight:700;margin-top:4px;">→ brasil.mapbiomas.org/colecoes (cobertura) ↗</a>
+        <a class="fr" href="https://plataforma.brasil.mapbiomas.org/cobertura" target="_blank" rel="noopener" style="display:block;color:#ea580c;text-decoration:none;font-weight:700;margin-top:4px;">→ plataforma.brasil.mapbiomas.org ↗</a>
+        <div class="gt">Testes: Wilcoxon pareado (1985 vs 2024) + Regressão temporal + ANOVA por classe de uso</div>
+      </div></div>
+      <div class="grupo gp4"><div class="grupo-top"><h3>G4 · Queimadas e Sazonalidade</h3><p>INPE BDQueimadas + ANA precipitação</p></div><div class="grupo-body">
+        <div class="gl">Pergunta</div><p><strong>Os focos de calor em MT aumentaram entre 1998 e 2024 e mostram tendência sazonal associada à diminuição da precipitação?</strong></p>
+        <div class="gl">Fontes</div><p>INPE BDQueimadas (focos mensais por município) · ANA HidroWeb (precipitação mensal).</p>
+        <a class="fr" href="https://terrabrasilis.dpi.inpe.br/queimadas/portal/" target="_blank" rel="noopener" style="display:block;color:#d97706;text-decoration:none;font-weight:700;margin-top:6px;">→ terrabrasilis.dpi.inpe.br/queimadas ↗</a>
+        <a class="fr" href="https://queimadas.dgi.inpe.br/queimadas/portal-static/situacao-atual/" target="_blank" rel="noopener" style="display:block;color:#d97706;text-decoration:none;font-weight:700;margin-top:4px;">→ queimadas.dgi.inpe.br ↗</a>
+        <a class="fr" href="https://www.snirh.gov.br/hidroweb/" target="_blank" rel="noopener" style="display:block;color:#d97706;text-decoration:none;font-weight:700;margin-top:4px;">→ snirh.gov.br/hidroweb (precipitação) ↗</a>
+        <div class="gt">Testes: Mann-Kendall + Média móvel simples + Correlação focos × chuva</div>
+      </div></div>
+    </div>
+
+    <!-- EIXO 3 — ÁGUA -->
+    <div class="eixo-head eixo-agua">
+      <span class="eixo-icone">💧</span>
+      <h3>Eixo 3 · Recursos Hídricos</h3>
+    </div>
+    <div class="grupos">
+      <div class="grupo gp5"><div class="grupo-top"><h3>G5 · Qualidade da Água</h3><p>SEMA-MT + ANA Qualiágua</p></div><div class="grupo-body">
+        <div class="gl">Pergunta</div><p><strong>O Índice de Qualidade da Água (IQA) difere entre as três regiões hidrográficas de MT (Amazônica, Paraguai, Tocantins-Araguaia)?</strong></p>
+        <div class="gl">Fontes</div><p>SEMA-MT (Relatório Qualiágua 2018–2024, ~107 pontos) · ANA Portal PNQA · ANA HidroWeb.</p>
+        <a class="fr" href="http://www.sema.mt.gov.br/" target="_blank" rel="noopener" style="display:block;color:#2563eb;text-decoration:none;font-weight:700;margin-top:6px;">→ sema.mt.gov.br ↗</a>
+        <a class="fr" href="https://portalpnqa.ana.gov.br/" target="_blank" rel="noopener" style="display:block;color:#2563eb;text-decoration:none;font-weight:700;margin-top:4px;">→ portalpnqa.ana.gov.br ↗</a>
+        <a class="fr" href="https://www.snirh.gov.br/hidroweb/" target="_blank" rel="noopener" style="display:block;color:#2563eb;text-decoration:none;font-weight:700;margin-top:4px;">→ snirh.gov.br/hidroweb ↗</a>
+        <div class="gt">Testes: ANOVA / Kruskal-Wallis + Mann-Whitney + Regressão IQA × uso do solo</div>
+      </div></div>
+      <div class="grupo gp6"><div class="grupo-top"><h3>G6 · Vazão e Disponibilidade Hídrica</h3><p>ANA HidroWeb</p></div><div class="grupo-body">
+        <div class="gl">Pergunta</div><p><strong>A vazão média anual do rio Paraguai em Cáceres apresenta tendência de redução entre 1995 e 2024, e como ela se relaciona com a precipitação na bacia?</strong></p>
+        <div class="gl">Fontes</div><p>ANA HidroWeb (estação fluviométrica Cáceres / DNAEE 66070004, série 1900-presente) · ANA precipitação na bacia · INMET (precipitação na bacia).</p>
+        <a class="fr" href="https://www.snirh.gov.br/hidroweb/" target="_blank" rel="noopener" style="display:block;color:#0d9488;text-decoration:none;font-weight:700;margin-top:6px;">→ snirh.gov.br/hidroweb ↗</a>
+        <a class="fr" href="https://www.snirh.gov.br/hidroweb/serieshistoricas" target="_blank" rel="noopener" style="display:block;color:#0d9488;text-decoration:none;font-weight:700;margin-top:4px;">→ séries históricas ANA ↗</a>
+        <a class="fr" href="https://bdmep.inmet.gov.br/" target="_blank" rel="noopener" style="display:block;color:#0d9488;text-decoration:none;font-weight:700;margin-top:4px;">→ bdmep.inmet.gov.br (precipitação) ↗</a>
+        <div class="gt">Testes: Mann-Kendall + Média móvel simples + Regressão vazão × precipitação</div>
+      </div></div>
+    </div>
+
   </div>
 </div>
 
@@ -1998,7 +2072,7 @@ N4 — Apresentação oral 20+20 min (grupo)</div>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <strong>Prof. Dr. Ernandes Sobreira Oliveira Junior</strong><br>
+  <strong>Prof. Dr. Wilkinson Lopes Lázaro</strong> &nbsp;·&nbsp; <strong>Prof. Dr. Ernandes Sobreira Oliveira Junior</strong><br>
   UNEMAT · Campus Cáceres-MT · Disciplina Intensiva de Estatística · 18–22/05/2026 · entrega final 23/05/2026<br>
   ernandes.sobreira@unemat.br · Lattes 7461346615427709
 </footer>
